@@ -1,8 +1,7 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContacts } from 'redux/contacts/contacts-operations';
 import { fetchContacts } from 'redux/contacts/contacts-operations';
-
 
 import css from './ContactForm.module.css';
 
@@ -11,10 +10,9 @@ const ContactForm = () => {
   const { name, number } = state;
   const dispatch = useDispatch();
 
-
   useEffect(() => {
-    dispatch(fetchContacts())
-  }, [])
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const handleChange = event => {
     const name = event.target.name;
