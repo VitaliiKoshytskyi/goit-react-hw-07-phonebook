@@ -7,6 +7,7 @@ import css from './ContactItem.module.css';
 
 const ContactItem = () => {
   const contacts = useSelector(getContacts);
+  console.log(contacts)
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
