@@ -2,8 +2,35 @@
     
     
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin: 5px;
+            margin: 0 auto;
             padding: 10px;
+            width: 300px;
         
+}
+.button{
+    text-align: center;
+}
+.phone{
+    text-align: center;
+}
+.name{
+    text-align: center;
+}
+.created{
+    text-align: center;
+}
+
+.phone::before{
+content: "Phone number: ";
+color: #db1111;
+}
+.created::before{
+content: "Created: ";
+    color: #db1111;
+}
+.name::before{
+content: "Name: ";
+    color: #db1111;
 }

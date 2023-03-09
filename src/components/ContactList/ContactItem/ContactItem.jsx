@@ -21,22 +21,38 @@ const ContactItem = () => {
   };
 
   const filteredContacts = getFilteredContacts();
-
+  
   const deleteContactHandler = id => {
     const action = deleteContact(id);
     dispatch(action);
   };
 
-  const element = filteredContacts.map(({ id, name, number }) => (
-    <li key={id} className={css.item}>
-      <p>
-        {name} : {number}
-      </p>
-      <button onClick={() => deleteContactHandler(id)}>Delete</button>
-    </li>
-  ));
+const months = [
+  'January', 'February', 'March', 'April',
+  'May', 'June', 'July', 'August',
+  'September', 'October', 'November', 'December'
+];
 
-  return element;
+ const element = filteredContacts.map(({ id, name, phone, createdAt }) => {
+  const date = new Date(createdAt);
+  const day = date.getDate();
+  const monthName = months[date.getMonth()]
+  const year = date.getFullYear();
+  const formattedDate = `${day} ${monthName} ${year}`;
+
+  return (
+    <li key={id} className={css.item}>
+      <p className={css.name}>
+       {name} 
+      </p>
+      <p className={css.phone}>{phone}</p>
+      <span className={css.created}>{formattedDate}</span>
+      <div className={css.button}><button onClick={() => deleteContactHandler(id)}>Delete</button></div>
+    </li>
+  );
+});
+
+return element;
 };
 
 export default ContactItem;
