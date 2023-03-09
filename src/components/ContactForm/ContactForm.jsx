@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/contacts-slice';
+import { addContacts } from 'redux/contacts/contacts-operations';
 import { fetchContacts } from 'redux/contacts/contacts-operations';
 import { getContacts } from 'redux/contacts/contacts-selectors';
 
@@ -35,7 +35,7 @@ const ContactForm = () => {
     if (isDublicate) {
       return alert(`${initialData.name} is already in contacts`);
     }
-    dispatch(addContact(initialData));
+    dispatch(addContacts(initialData));
     setState({ name: '', number: '' });
   };
 
