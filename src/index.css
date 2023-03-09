@@ -65,3 +65,6 @@ button{
 button:focus{
   background-color: aqua;
 }
+ul,li{
+  padding: 0;
+}
